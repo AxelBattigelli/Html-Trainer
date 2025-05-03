@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Entraîneur HTML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Entraîneur HTML</h1>
+    <div id="level-info"></div>
+
+    <textarea id="editor" placeholder="Écris ton code HTML ici..."></textarea>
+    <button onclick="runCode()">Exécuter</button>
+    <button onclick="checkSolution()">Vérifier</button>
+
+    <h2>Résultat :</h2>
+    <iframe id="preview"></iframe>
+
+    <div id="feedback"></div>
+    <button onclick="nextLevel()">Niveau suivant</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

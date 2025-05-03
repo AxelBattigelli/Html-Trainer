@@ -1,0 +1,48 @@
+[
+    {
+        "title": "Niveau 1 : Un titre",
+        "description": "Écris un titre de niveau 1 avec le texte « Bonjour ».",
+        "expected": "<h1>Bonjour</h1>"
+    },
+    {
+        "title": "Niveau 2 : Un paragraphe",
+        "description": "Ajoute un paragraphe contenant « Ceci est un paragraphe. »",
+        "expected": "<p>Ceci est un paragraphe.</p>"
+    },
+    {
+        "title": "Niveau 3 : Une liste",
+        "description": "Crée une liste non ordonnée avec les éléments « Pomme », « Banane », et « Orange ».",
+        "expectedContains": [
+            "<ul>",
+            "<li>Pomme</li>",
+            "<li>Banane</li>",
+            "<li>Orange</li>",
+            "</ul>"
+        ]
+    },
+    {
+        "title": "Niveau 4 : Un lien",
+        "description": "Ajoute un lien vers https://openai.com avec le texte « Visiter OpenAI ».",
+        "expectedContains": [
+            "<a href=\"https://openai.com\">Visiter OpenAI</a>"
+        ]
+    },
+    {
+        "title": "Niveau 5 : Une image",
+        "description": "Ajoute une image avec l'URL « image.jpg » et un texte alternatif « Une belle image ».",
+        "expectedContains": [
+            "<img src=\"image.jpg\" alt=\"Une belle image\">"
+        ]
+    },
+    {
+        "title": "Niveau 6 : Une section complète",
+        "description": "Crée une section contenant un titre de niveau 2 « À propos », suivi d’un paragraphe de ton choix.",
+        "expectedContains": [
+            "<section>",
+            "<h2>À propos</h2>",
+            "<p>",
+            "</p>",
+            "</section>"
+        ]
+    }
+]
