@@ -1,0 +1,20 @@
+/* CodeMirror Custom theme */
+.cm-tag {
+    color: #569CD6 !important;
+}
+
+.cm-attribute {
+    color: #9CDCFE !important;
+}
+
+.cm-string {
+    color: #CE9178 !important;
+}
+
+.cm-comment {
+    color: #6A9955;
+}
+
+.cm-atom {
+    color: #569CD6 !important;
+}
