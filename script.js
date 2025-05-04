@@ -1,5 +1,5 @@
 let levels = [];
-let currentLevel = 0;
+let currentLevel = parseInt(getCookie("lastLevel") || "0");
 
 fetch("levels.json")
     .then(res => res.json())
@@ -44,9 +44,13 @@ function checkSolution() {
 }
 
 function showFeedback(success) {
-    document.getElementById("feedback").innerText = success
-        ? "✅ Bravo !"
-        : "❌ Ce n'est pas encore ça.";
+    const feedback = document.getElementById("feedback");
+    if (success) {
+        feedback.innerText = "✅ Bravo !";
+        setCookie("lastLevel", currentLevel + 1, 30); // start at this level the next time
+    } else {
+        feedback.innerText = "❌ Ce n'est pas encore ça.";
+    }
 }
 
 function nextLevel() {
@@ -58,4 +62,16 @@ function nextLevel() {
         document.getElementById("editor").style.display = "none";
         document.getElementById("preview").style.display = "none";
     }
+}
+
+function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
+}
+
+function getCookie(name) {
+    return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r
+    }, '');
 }
