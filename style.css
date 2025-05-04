@@ -1,3 +1,17 @@
+header {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo-header {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -10,9 +24,14 @@ body {
     font-family: monospace;
 }
 
+.CodeMirror pre.CodeMirror-placeholder {
+    color: #888;
+    font-style: italic;
+}
+
 #preview {
     width: 100%;
-    height: 200px;
+    height: 300px;
     border: 1px solid #ccc;
     background: white;
 }
@@ -20,4 +39,97 @@ body {
 #feedback {
     margin-top: 10px;
     font-weight: bold;
+}
+
+#level-info {
+    position: relative;
+}
+
+/* Help bubble */
+
+.help-bubble {
+    position: relative;
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 50px;
+    font-size: 0.9em;
+    cursor: pointer;
+    margin-top: 10px;
+    user-select: none;
+}
+
+.help-popup {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    width: 220px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 4px;
+}
+
+.help-bubble:hover .help-popup {
+    display: block;
+}
+
+.help-popup a {
+    color: #007BFF;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.help-popup a:hover {
+    text-decoration: underline;
+}
+
+/* Common */
+
+button {
+    font-family: 'Segoe UI', sans-serif;
+    padding: 10px 16px;
+    font-size: 16px;
+    margin: 8px 6px 8px 0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    color: white;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+/* Run */
+button:nth-of-type(1) {
+    background-color: #007BFF;
+}
+
+button:nth-of-type(1):hover {
+    background-color: #0056b3;
+}
+
+/* Check */
+button:nth-of-type(2) {
+    background-color: #FFA500;
+}
+
+button:nth-of-type(2):hover {
+    background-color: #cc8400;
+}
+
+/* Next level */
+button:nth-of-type(3) {
+    background-color: #28a745;
+}
+
+button:nth-of-type(3):hover {
+    background-color: #1e7e34;
 }

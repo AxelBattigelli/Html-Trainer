@@ -5,13 +5,21 @@
     <meta charset="UTF-8">
     <title>Entraîneur HTML</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="codeMirrorCustom.css">
+    <!-- CodeMirror CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/theme/material.min.css" />
 </head>
 
-<body>
+<header>
+    <img id="logo-header" src="https://tinyjpg.com/images/social/website.jpg" alt="Logo">
     <h1>Entraîneur HTML</h1>
+</header>
+
+<body>
     <div id="level-info"></div>
 
-    <textarea id="editor" placeholder="Écris ton code HTML ici..."></textarea>
+    <textarea id="editor"></textarea>
     <button onclick="runCode()">Exécuter</button>
     <button onclick="checkSolution()">Vérifier</button>
 
@@ -22,6 +30,15 @@
     <button onclick="nextLevel()">Niveau suivant</button>
 
     <script src="script.js"></script>
+    <!-- CodeMirror JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/addon/display/placeholder.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/htmlmixed/htmlmixed.min.js"></script>
 </body>
+<footer>
 
+</footer>
 </html>
