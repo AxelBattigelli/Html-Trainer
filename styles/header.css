@@ -1,0 +1,13 @@
+header {
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo-header {
+    height: 40px;
+    width: auto;
+    margin-right: 10px;
+}

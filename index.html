@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Entraîneur HTML</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="codeMirrorCustom.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/codeMirrorCustom.css">
     <!-- CodeMirror CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/theme/material.min.css" />
@@ -14,11 +16,15 @@
 <header>
     <img id="logo-header" src="https://tinyjpg.com/images/social/website.jpg" alt="Logo">
     <h1>Entraîneur HTML</h1>
+    <!-- <div>
+        <p>Home     contact</p>
+    </div> -->
 </header>
 
 <body>
     <div id="level-info"></div>
 
+    </br>
     <textarea id="editor"></textarea>
     <button onclick="runCode()">Exécuter</button>
     <button onclick="checkSolution()">Vérifier</button>
@@ -28,8 +34,10 @@
 
     <div id="feedback"></div>
     <button onclick="nextLevel()">Niveau suivant</button>
+    </br></br></br></br></br>
 
     <script src="script.js"></script>
+    <script src="scripts/footer.js"></script>
     <!-- CodeMirror JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/addon/display/placeholder.min.js"></script>
@@ -38,7 +46,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/css/css.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/htmlmixed/htmlmixed.min.js"></script>
 </body>
-<footer>
 
+<footer>
+    <p id="copyright"></p>
 </footer>
+
 </html>

@@ -49,12 +49,20 @@ function loadLevel() {
     if (level.help && level.help.length > 0) {
         helpLinks = `
         <div class="help-bubble">
-            ❓ Aide
+            Un coup de pouce ❓
             <div class="help-popup">
             ${level.help.map(h =>
                     `<a href="${h.url}" target="_blank">${escapeHTML(h.label)}</a>`
                 ).join("<br>")}
             </div>
+        </div>
+        `;
+        maxLinesInfo = `
+        <div class="max-lines-info">
+            Vous disposez de
+            ${level.maxLines}
+            ligne${level.maxLines >= 2 ? 's' : ''}
+            maximum.
         </div>
         `;
     }
@@ -63,13 +71,34 @@ function loadLevel() {
             <h2>${level.title}</h2>
             <p>${level.description}</p>
         </div>
-        ${helpLinks}
+        <div class="align-justify">
+            ${maxLinesInfo}
+            ${helpLinks}
+        </div>
     `;
     const savedCode = getCookie("savedCode");
     editor.setValue(savedCode || "");
     document.getElementById("feedback").innerText = "";
     document.getElementById("preview").srcdoc = "";
+
+    setTimeout(() => {
+        const helpBubble = document.querySelector(".help-bubble");
+        if (helpBubble) {
+            helpBubble.addEventListener("click", function (e) {
+                e.stopPropagation();
+                const popup = helpBubble.querySelector(".help-popup");
+                popup.style.display = (popup.style.display === "block") ? "none" : "block";
+            });
+        }
+    }, 0);
+
 }
+
+document.addEventListener("click", function () {
+    document.querySelectorAll(".help-popup").forEach(popup => {
+        popup.style.display = "none";
+    });
+});
 
 function runCode() {
     const code = editor.getValue();
@@ -80,6 +109,11 @@ function checkSolution() {
     const userCode = editor.getValue().trim();
     const level = levels[currentLevel];
 
+    if (level.maxLines) {
+        if (level.maxLines < editor.lineCount()) {
+            return showFeedback(false);
+        }
+    }
     if (level.expected) {
         return showFeedback(userCode === level.expected.trim());
     }
@@ -100,23 +134,27 @@ function validateDOMStructure(code, structure) {
 
     function validateElement(selector, expectedStructure) {
         const element = doc.querySelector(selector);
-        if (!element)
-            return false;
+        if (!element) return false;
 
         for (const [tag, condition] of Object.entries(expectedStructure)) {
-            const tagElement = element.querySelector(tag);
-            if (!tagElement)
-                return false;
-            if (condition === true && !tagElement) {
-                return false;
-            }
-            if (typeof condition === "string" && tagElement.textContent.trim() !== condition) {
-                return false;
+            const elements = Array.from(element.querySelectorAll(tag));
+            if (Array.isArray(condition)) {
+                if (elements.length !== condition.length) return false;
+                for (let i = 0; i < condition.length; i++) {
+                    if (elements[i].textContent.trim() !== condition[i]) {
+                        return false;
+                    }
+                }
+            } else if (typeof condition === "string") {
+                if (!elements.length || elements[0].textContent.trim() !== condition) return false;
+            } else {
+                if (!elements.length) return false;
             }
         }
 
         return true;
     }
+
 
     for (const [selector, expectedStructure] of Object.entries(structure)) {
         if (!validateElement(selector, expectedStructure)) {

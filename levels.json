@@ -8,6 +8,7 @@
                 "label": "Les titres <h*>"
             }
         ],
+        "maxLines": 1,
         "expected": "<h1>Bonjour</h1>"
     },
     {
@@ -19,6 +20,7 @@
                 "label": "Les balise <p>"
             }
         ],
+        "maxLines": 1,
         "expected": "<p>Ceci est un paragraphe.</p>"
     },
     {
@@ -34,23 +36,28 @@
                 "label": "Les balises <li>"
             }
         ],
-        "expectedContains": [
-            "<ul>",
-            "<li>Pomme</li>",
-            "<li>Banane</li>",
-            "<li>Orange</li>",
-            "</ul>"
-        ]
+        "maxLines": 5,
+        "validateType": "dom",
+        "expectedStructure": {
+            "ul": {
+                "li": [
+                    "Pomme",
+                    "Banane",
+                    "Orange"
+                ]
+            }
+        }
     },
     {
         "title": "Niveau 4 : Un lien",
-        "description": "Ajoute un lien vers https://developer.mozilla.org/fr/docs/Web/HTML/Reference avec le texte « Visiter la documentation ».",
+        "description": "Ajoute un lien vers « https://developer.mozilla.org/fr/docs/Web/HTML/Reference » avec le texte « Visiter la documentation ».",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/a",
                 "label": "Les balises <a>"
             }
         ],
+        "maxLines": 1,
         "expectedContains": [
             "<a href=\"https://developer.mozilla.org/fr/docs/Web/HTML/Reference\">Visiter la documentation</a>"
         ]
@@ -64,23 +71,23 @@
                 "label": "Les balises <img>"
             }
         ],
+        "maxLines": 1,
         "expectedContains": [
-            "<img src=\"https://tinyjpg.com/images/social/website.jpg\" alt=\"Une belle image\">"
+            "<img src=\"https://tinyjpg.com/images/social/website.jpg\" alt=\"Une belle image\" />"
         ]
     },
     {
         "title": "Niveau 6 : Une citation",
-        "description": "Ajoute la citation \"HTML est un langage de balisage pour structurer des pages web.\" pointant vers une source \"https://fr.wikipedia.org/wiki/HTML\".",
+        "description": "Ajoute la citation « HTML est un langage de balisage pour structurer des pages web. » pointant vers une source \"https://fr.wikipedia.org/wiki/HTML\".",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Element/blockquote",
                 "label": "Les balises <blockquote>"
             }
         ],
+        "maxLines": 1,
         "expectedContains": [
-            "<blockquote cite=\"https://fr.wikipedia.org/wiki/HTML\">",
-            "HTML est un langage de balisage pour structurer des pages web.",
-            "</blockquote>"
+            "<blockquote cite=\"https://fr.wikipedia.org/wiki/HTML\">HTML est un langage de balisage pour structurer des pages web.</blockquote>"
         ]
     },
     {
@@ -92,6 +99,7 @@
                 "label": "Les balises <section>"
             }
         ],
+        "maxLines": 4,
         "validateType": "dom",
         "expectedStructure": {
             "section": {
@@ -109,10 +117,29 @@
                 "label": "Les balises <div>"
             }
         ],
+        "maxLines": 4,
         "validateType": "dom",
         "expectedStructure": {
             "div": {
                 "h2": true,
+                "p": true
+            }
+        }
+    },
+    {
+        "title": "Niveau 9 : Un audio",
+        "description": "Ajoute un lecteur audio avec une source de fichier audio « ./audioexemple.mp3 » et un contrôle de lecture.",
+        "help": [
+            {
+                "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Element/audio",
+                "label": "Les balises <audio>"
+            }
+        ],
+        "maxLines": 4,
+        "validateType": "dom",
+        "expectedStructure": {
+            "audio controls": {
+                "source": "src=\"audioexemple.mp3\" type=\"audio/mpeg\"",
                 "p": true
             }
         }
