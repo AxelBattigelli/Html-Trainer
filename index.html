@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Entraîneur HTML</title>
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/popup.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/codeMirrorCustom.css">
@@ -22,6 +23,32 @@
 </header>
 
 <body>
+    <!-- POPUP -->
+    <div id="popup-overlay">
+        <div id="popup-content">
+            <h2>Bienvenue, Aventurier</h2>
+            <p>
+                Dans un monde oublié depuis des siècles, la magie s’est éteinte, ne laissant derrière elle que des ruines, des légendes... et des secrets enfouis.
+                <br><br>
+                Un jour, alors que tout semblait ordinaire, tu as croisé la route d’un être peu commun :
+                <br>
+                &emsp;&emsp;un panda au regard empreint de sagesse et de tristesse. Il t’a raconté son histoire, celle d’un passé où la magie nourrissait la terre, aujourd’hui réduite au silence.
+                <br><br>
+                Mais tout n’est pas perdu.
+                <br>
+                Car toi seul possèdes le pouvoir de raviver la flamme ancienne.
+                <br>
+                À travers des énigmes oubliées, des épreuves ancestrales et des lieux oubliés du temps, tu devras percer les mystères du passé… accompagné de ton nouvel ami.
+                <br><br>
+                Es-tu prêt à découvrir la vérité cachée et à redonner vie à ce monde éteint ?
+                <br><br>
+                Le destin du panda, et bien plus encore, est entre tes mains.
+            </p>
+            <button id="start-button">Commencer !</button>
+        </div>
+    </div>
+
+    <!-- Base page -->
     <div id="level-info"></div>
 
     </br>
@@ -36,7 +63,8 @@
     <button onclick="nextLevel()">Niveau suivant</button>
     </br></br></br></br></br>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="scripts/init.js"></script>
     <script src="scripts/footer.js"></script>
     <!-- CodeMirror JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js"></script>

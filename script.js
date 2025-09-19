@@ -1,3 +1,5 @@
+import { getCookie, setCookie } from './scripts/cookieManager.js';
+
 let levels = [];
 let currentLevel = parseInt(getCookie("lastLevel") || "0");
 let editor;
@@ -46,6 +48,8 @@ function loadLevel() {
     const level = levels[currentLevel];
 
     let helpLinks = "";
+    let maxLinesInfo = "";
+
     if (level.help && level.help.length > 0) {
         helpLinks = `
         <div class="help-bubble">
@@ -104,6 +108,7 @@ function runCode() {
     const code = editor.getValue();
     document.getElementById("preview").srcdoc = code;
 }
+window.runCode = runCode;
 
 function checkSolution() {
     const userCode = editor.getValue().trim();
@@ -123,10 +128,19 @@ function checkSolution() {
         return showFeedback(allFound);
     }
 
+    if (level.expectedContainsRegex) {
+        const allMatch = level.expectedContainsRegex.every(regexStr => {
+            const regex = new RegExp(regexStr);
+            return regex.test(userCode);
+        });
+        return showFeedback(allMatch);
+    }
+
     if (level.validateType === "dom" && level.expectedStructure) {
         return showFeedback(validateDOMStructure(userCode, level.expectedStructure));
     }
 }
+window.checkSolution = checkSolution;
 
 function validateDOMStructure(code, structure) {
     const parser = new DOMParser();
@@ -192,6 +206,7 @@ function nextLevel() {
         document.getElementById("preview").style.display = "none";
     }
 }
+window.nextLevel = nextLevel;
 
 function resetProgress() {
     setCookie("lastLevel", 0, 30);
@@ -200,16 +215,4 @@ function resetProgress() {
     document.querySelector(".CodeMirror").style.display = "block";
     document.getElementById("preview").style.display = "block";
     loadLevel();
-}
-
-function setCookie(name, value, days) {
-    const expires = new Date(Date.now() + days * 864e5).toUTCString();
-    document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/';
-}
-
-function getCookie(name) {
-    return document.cookie.split('; ').reduce((r, v) => {
-        const parts = v.split('=');
-        return parts[0] === name ? decodeURIComponent(parts[1]) : r
-    }, '');
 }

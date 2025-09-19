@@ -1,7 +1,7 @@
 [
     {
         "title": "Niveau 1 : Un titre",
-        "description": "Écris un titre de niveau 1 avec le texte « Bonjour ».",
+        "description": "Notre panda souhaite écrire les récits de notre aventure ! Écris un titre de niveau 1 avec le texte « Bonjour ».",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/Heading_Elements",
@@ -13,7 +13,7 @@
     },
     {
         "title": "Niveau 2 : Un paragraphe",
-        "description": "Ajoute un paragraphe contenant « Ceci est un paragraphe. »",
+        "description": "Ajoute un paragraphe contenant « Ceci est le début de l'aventure. »",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/p",
@@ -21,11 +21,11 @@
             }
         ],
         "maxLines": 1,
-        "expected": "<p>Ceci est un paragraphe.</p>"
+        "expected": "<p>Ceci est le début de l'aventure.</p>"
     },
     {
         "title": "Niveau 3 : Une liste",
-        "description": "Crée une liste non ordonnée avec les éléments « Pomme », « Banane », et « Orange ».",
+        "description": "Notre panda souhaite maintenant lister les fruits dont il aura besoin les prochaines semaines. Crée une liste non ordonnée avec les éléments « Pomme », « Banane », et « Orange ».",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/ul",
@@ -72,8 +72,8 @@
             }
         ],
         "maxLines": 1,
-        "expectedContains": [
-            "<img src=\"https://tinyjpg.com/images/social/website.jpg\" alt=\"Une belle image\" />"
+        "expectedContainsRegex": [
+            "<img src=\"https://tinyjpg.com/images/social/website.jpg\" alt=\"Une belle image\"\\s*/?>"
         ]
     },
     {
