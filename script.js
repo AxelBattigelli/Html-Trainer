@@ -1,7 +1,7 @@
 import { getCookie, setCookie } from './scripts/cookieManager.js';
 
 let levels = [];
-let currentLevel = parseInt(getCookie("lastLevel") || "0");
+let currentLevel = parseInt(getCookie("LastLevel") || "0");
 let editor;
 let levelValidated = false;
 
@@ -184,7 +184,7 @@ function showFeedback(success) {
     levelValidated = success;
     if (success) {
         feedback.innerText = "✅ Bravo !";
-        setCookie("lastLevel", currentLevel + 1, 30); // On stocke le prochain niveau
+        setCookie("LastLevel", currentLevel + 1, 30); // On stocke le prochain niveau
         setCookie("savedCode", "", 30); // reset of editor content
     } else {
         feedback.innerText = "❌ Ce n'est pas encore ça.";
@@ -209,7 +209,7 @@ function nextLevel() {
 window.nextLevel = nextLevel;
 
 function resetProgress() {
-    setCookie("lastLevel", 0, 30);
+    setCookie("LastLevel", 0, 30);
     currentLevel = 0;
     editor.setValue("");
     document.querySelector(".CodeMirror").style.display = "block";

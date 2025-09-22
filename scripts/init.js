@@ -24,7 +24,7 @@ fetch("VERSION.txt")
             const storedVersion = parseVersion(storedVersionStr);
             if (compareVersions(currentVersion, storedVersion)) {
                 setCookie("savedCode", "", 30);
-                setCookie("lastLevel", 0, 30);
+                setCookie("LastLevel", 0, 30);
                 setCookie("lorePopupShown", "false", 30);
                 location.reload();
             }
