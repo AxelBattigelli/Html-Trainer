@@ -50,7 +50,7 @@
     },
     {
         "title": "Niveau 4 : Un lien",
-        "description": "Ajoute un lien vers « https://developer.mozilla.org/fr/docs/Web/HTML/Reference » avec le texte « Visiter la documentation ».",
+        "description": "C'est parti pour l'aventure! Prenons notre carte ! Il s'agit d'un lien vers un site plein d'énigmes. Crée un lien « https://watabou.itch.io/medieval-fantasy-city-generator » avec le texte « Visiter la carte ».",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/a",
@@ -59,12 +59,12 @@
         ],
         "maxLines": 1,
         "expectedContains": [
-            "<a href=\"https://developer.mozilla.org/fr/docs/Web/HTML/Reference\">Visiter la documentation</a>"
+            "<a href=\"https://watabou.itch.io/medieval-fantasy-city-generator\">Visiter la carte</a>"
         ]
     },
     {
         "title": "Niveau 5 : Une image",
-        "description": "Ajoute une image avec l'URL « https://tinyjpg.com/images/social/website.jpg » et un texte alternatif « Une belle image ».",
+        "description": "Wahou ! T'es rapide, on est déjà sur le premier lieu. Ca te dit de prendre une photo ? Ajoute cette image avec l'URL « https://zupimages.net/up/14/30/foae.jpg » et un texte alternatif « Première énigme ».",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/img",
@@ -73,12 +73,12 @@
         ],
         "maxLines": 1,
         "expectedContainsRegex": [
-            "<img src=\"https://tinyjpg.com/images/social/website.jpg\" alt=\"Une belle image\"\\s*/?>"
+            "<img src=\"https://zupimages.net/up/14/30/foae.jpg\" alt=\"Première énigme\"\\s*/?>"
         ]
     },
     {
         "title": "Niveau 6 : Une citation",
-        "description": "Ajoute la citation « HTML est un langage de balisage pour structurer des pages web. » pointant vers une source \"https://fr.wikipedia.org/wiki/HTML\".",
+        "description": "Ajoute la citation « Si l'amour rend aveugle, je crois que l'amitié ça crève les yeux. » pointant vers une source \"https://citations.ouest-france.fr/citation-orelsan/amour-rend-aveugle-crois-amitie-137193.html\".",
         "help": [
             {
                 "url": "https://developer.mozilla.org/fr/docs/Web/HTML/Element/blockquote",
@@ -87,7 +87,7 @@
         ],
         "maxLines": 1,
         "expectedContains": [
-            "<blockquote cite=\"https://fr.wikipedia.org/wiki/HTML\">HTML est un langage de balisage pour structurer des pages web.</blockquote>"
+            "<blockquote cite=\"https://citations.ouest-france.fr/citation-orelsan/amour-rend-aveugle-crois-amitie-137193.html\">Si l'amour rend aveugle, je crois que l'amitié ça crève les yeux.</blockquote>"
         ]
     },
     {
